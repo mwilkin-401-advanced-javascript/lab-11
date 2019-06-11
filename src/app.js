@@ -18,6 +18,7 @@ const router = require('./routes/books.js');
 
 // Prepare the express app
 const app = express();
+app.use(express.static('doc'));
 
 // App Level MW
 app.use(cors());
