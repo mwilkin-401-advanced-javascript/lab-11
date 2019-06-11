@@ -1,3 +1,6 @@
-PORT - 
+PORT=3000
 
-MONGODB_URI - mongodb://localhost:27017/class-10
+# connection string for Mongo DB
+MONGODB_URI=mongodb://localhost:27017/class-11
+
+SECRET=Felipeisthelooks
