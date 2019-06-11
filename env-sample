@@ -1,0 +1,6 @@
+PORT=3000
+
+# connection string for Mongo DB
+MONGODB_URI=mongodb://localhost:27017/class-11
+
+SECRET=Felipeisthelooks

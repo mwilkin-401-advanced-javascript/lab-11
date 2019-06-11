@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "lint": "eslint **/*.js",
+    "lint": "eslint \"src/*.js\"",
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage",
-    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json"
+    "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json ."
   },
   "jest": {
     "testEnvironment": "node"
@@ -21,8 +21,10 @@
     "cors": "^2.8.4",
     "debug": "^4.1.0",
     "dotenv": "^6.1.0",
+    "eslint": "^5.16.0",
     "express": "^4.16.3",
     "jest": "^23.6.0",
+    "jsdocs": "^1.0.0",
     "jsonwebtoken": "^8.4.0",
     "mongodb-memory-server": "^2.7.3",
     "mongoose": "^5.3.13",
@@ -31,6 +33,5 @@
     "require-directory": "^2.1.1",
     "supertest": "^3.3.0",
     "swagger-ui-express": "^4.0.2"
-    
   }
 }
