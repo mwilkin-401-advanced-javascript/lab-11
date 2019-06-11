@@ -35,7 +35,7 @@ module.exports = (req, res, next) => {
     if ( user ) {
       console.log(user);
       req.user = user;
-      // req.token = user.generateToken();
+      req.token = user.generateToken();
       next();
     }
     else {

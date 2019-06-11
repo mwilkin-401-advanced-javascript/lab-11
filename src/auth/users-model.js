@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+* user model
+* @module users-model - 
+ */
+
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
@@ -27,11 +32,19 @@ users.statics.authenticateBasic = function(auth) {
     .catch(console.error);
 };
 
+/**
+* Compare a plain text password against the hashed one we have saved
+* @module authRouter - 
+ */
 // Compare a plain text password against the hashed one we have saved
 users.methods.comparePassword = function(password) {
-  return bcrypt.compare(password, this.password);
+  return bcrypt.compare(password, this.password)
+    .then(valid => valid ? this : null);
 };
-
+/**
+* authRouter
+* @module authRouter - 
+ */
 // Generate a JWT from the user id and a secret
 users.methods.generateToken = function() {
   let tokenData = {
