@@ -1,23 +1,38 @@
-# lab-11
-Authentication
+# Lab-11 Authentication
 
-# project-scaffold
-Scaffold for lab projects for 401
+[![Build Status](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-11.svg?branch=master)](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-11)
 
-[![Build Status](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-04.svg?branch=master)](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-04)
-
-### Author:
+### Author: Felipe Delatorre and Matt Wilkin
 
 ### Links and Resources
-[submission PR](https://github.com/mwilkin-401-advanced-javascript/lab-04/pull/4)
 
-[travis](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-04)
+[Submission PR](https://github.com/mwilkin-401-advanced-javascript/lab-11/pull/1)
+
+[Travis](https://www.travis-ci.com/mwilkin-401-advanced-javascript/lab-11)
+
+[Heroku](https://hidden-lake-68893.herokuapp.com/)
+
+* UML <img src="./assets/Book_App_UML.png" width="400">
 
 ### Documentation
 
 Dependencies
-jest
-lint
+
+  bcrypt
+  cors 
+  debug 
+  dotenv
+  eslint
+  express
+  jest
+  jsonwebtoken
+  mongodb-memory-server
+  mongoose
+  mongoose-schema-jsonschema
+  morgan
+  require-directory
+  supertest
+  swagger-ui-express
 
 Modules
 
