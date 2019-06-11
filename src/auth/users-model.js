@@ -1,13 +1,19 @@
 'use strict';
 
 /**
-* user model
-* @module users-model - 
+* @module src/auth/user-model
  */
+
+
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+
+/**
+* @typeof users-model
+* @property {schema} - model schema 
+ */
 
 const users = new mongoose.Schema({
   username: {type: String, required: true, unique: true},
@@ -15,6 +21,12 @@ const users = new mongoose.Schema({
   email: {type: String},
   role: {type: String, required:true, default:'user', enum:['admin','editor','user'] },
 });
+
+/**
+* pre- save method
+* @param {function} - before save middleware
+* @desc Before saving password, hash it
+ */
 
 users.pre('save', function(next) {
   bcrypt.hash(this.password,10)
@@ -25,6 +37,11 @@ users.pre('save', function(next) {
     .catch( error => {throw error;} );
 });
 
+/**
+* authenticateBasic
+* @param {function} - 
+ */
+
 users.statics.authenticateBasic = function(auth) {
   let query = {username:auth.username};
   return this.findOne(query)
@@ -33,18 +50,20 @@ users.statics.authenticateBasic = function(auth) {
 };
 
 /**
-* Compare a plain text password against the hashed one we have saved
-* @module authRouter - 
+* comparPassword
+* @param {function} - Compare a plain text password against the hashed one we have saved
  */
+
 // Compare a plain text password against the hashed one we have saved
 users.methods.comparePassword = function(password) {
   return bcrypt.compare(password, this.password)
     .then(valid => valid ? this : null);
 };
 /**
-* authRouter
-* @module authRouter - 
+* generateToken
+* @param {function} - generate JWT from the user id and a secret
  */
+
 // Generate a JWT from the user id and a secret
 users.methods.generateToken = function() {
   let tokenData = {
@@ -53,5 +72,10 @@ users.methods.generateToken = function() {
   };
   return jwt.sign(tokenData, process.env.SECRET || 'changeit' );
 };
+
+/**
+* Export Object
+* @type {Object}
+ */
 
 module.exports = mongoose.model('users', users);

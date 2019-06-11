@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * App Server Module
+ * @module src/app
+ */
+
 // 3rd Party Resources
 const express = require('express');
 const cors = require('cors');
@@ -28,6 +33,11 @@ app.use(notFound);
 app.use(errorHandler);
 
 let isRunning = false;
+
+/**
+ *  
+ * 
+ */
 
 module.exports = {
   server: app,
